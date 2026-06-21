@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo cáo dự án: AI Bot Trade Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        midnight: '#1a202c',
+                        slateGray: '#4a5568',
+                        goldAccent: '#b58900',
+                        paper: '#FAFAFA'
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'Times', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Times New Roman', Times, serif; }
+        .text-justify { text-align: justify; }
+        @media print {
+            .no-print { display: none; }
+            body { background: white; padding: 0; }
+        }
+    </style>
+</head>
+<body class="bg-paper text-slateGray leading-relaxed antialiased">
+
+    <!-- Container -->
+    <main class="max-w-4xl mx-auto px-6 py-12">
+        
+        <!-- Header -->
+        <header class="border-b border-gray-300 pb-6 mb-8 flex justify-between items-center no-print">
+            <h1 class="text-xl font-bold text-midnight uppercase tracking-wider">AI Software Development</h1>
+            <a href="www.phamhoanganhtokens.com" target="_blank" class="text-sm hover:text-goldAccent transition-colors">www.phamhoanganhtokens.com</a>
+        </header>
+
+        <!-- Identity Section -->
+        <section class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold text-midnight uppercase mb-8">BÁO CÁO DỰ ÁN: PHÁT TRIỂN HỆ THỐNG AI BOT TRADE PRO (MQL5)</h1>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm border-y border-gray-200 py-6">
+                <div class="flex gap-2"><strong>Đơn vị:</strong> <span>AI Software Development</span></div>
+                <div class="flex gap-2"><strong>Website:</strong> <span>www.phamhoanganhtokens.com</span></div>
+                <div class="flex gap-2"><strong>Loại báo cáo:</strong> <span>V4 Standard Report</span></div>
+                <div class="flex gap-2"><strong>Trạng thái:</strong> <span>Hoàn thiện (Live Ready)</span></div>
+            </div>
+        </section>
+
+        <!-- TOC -->
+        <nav class="bg-gray-100 p-6 rounded-lg mb-12 no-print">
+            <h2 class="font-bold text-midnight uppercase mb-4 border-b border-gray-300 pb-2">Mục lục</h2>
+            <ul class="space-y-2 text-sm text-midnight">
+                <li><a href="#summary" class="hover:text-goldAccent">1. Tóm tắt dự án (Executive Summary)</a></li>
+                <li><a href="#content" class="hover:text-goldAccent">2. Nội dung chính (Main Content)</a></li>
+                <li><a href="#conclusion" class="hover:text-goldAccent">3. Kết luận (Conclusion)</a></li>
+                <li><a href="#risk" class="hover:text-goldAccent">4. Quản trị rủi ro (Risk Management)</a></li>
+            </ul>
+        </nav>
+
+        <!-- Content Sections -->
+        <article class="space-y-10">
+            
+            <section id="summary" class="border-l-4 border-goldAccent pl-6 bg-white py-4">
+                <h2 class="text-2xl font-bold text-midnight mb-4">1. Tóm tắt dự án (Executive Summary)</h2>
+                <p class="text-justify">
+                    Dự án "AI Bot Trade Pro" tập trung vào việc xây dựng một giải pháp giao dịch tự động chuyên nghiệp trên nền tảng MQL5. Mục tiêu cốt lõi là tối ưu hóa hiệu suất thông qua cơ chế "price-chasing" (đuổi bám giá) tần suất cao và hệ thống "infinite profit trailing" (dịch điểm chốt lời vô hạn). Khác biệt hoàn toàn với các giải pháp truyền thống dựa trên nến (candle-based), AI Bot Trade Pro vận hành trên dữ liệu Tick thực tế, cho phép phản ứng tức thời với mọi biến động nhỏ nhất của thị trường. Hệ thống hiện đã hoàn thiện logic đồng bộ, sẵn sàng triển khai thực tế (Live Deployment) với độ chính xác và tính minh bạch cao.
+                </p>
+            </section>
+
+            <section id="content">
+                <h2 class="text-2xl font-bold text-midnight mb-6">2. Nội dung chính (Main Content)</h2>
+                
+                <h3 class="text-lg font-bold text-midnight mb-2">2.1. Đột phá Công nghệ: Từ Candle-based sang Tick-based</h3>
+                <p class="text-justify mb-4">Điểm chuyển đổi chiến lược và là lợi thế cạnh tranh lớn nhất của dự án chính là việc loại bỏ logic dựa trên nến lịch sử để chuyển sang xử lý dữ liệu Tick thời gian thực (<code>MqlTick</code>).</p>
+                <ul class="list-disc ml-6 space-y-2 mb-6">
+                    <li><strong>Lợi ích:</strong> Giảm thiểu độ trễ (latency), loại bỏ nhiễu tín hiệu và cho phép thực thi lệnh tại các thời điểm đột phá (breakout) với độ chính xác mili giây.</li>
+                    <li><strong>Kỹ thuật:</strong> Sử dụng <code>SymbolInfoTick</code> để cập nhật liên tục giá Ask/Bid, đảm bảo mọi quyết định giao dịch dựa trên mức giá mới nhất của thị trường.</li>
+                </ul>
+
+                <h3 class="text-lg font-bold text-midnight mb-2">2.2. Các Tính năng Kỹ thuật Cốt lõi</h3>
+                <ul class="list-disc ml-6 space-y-2 mb-6">
+                    <li><strong>Trailing Pending Orders:</strong>
+                        <ul class="list-none ml-4 mt-1 italic text-sm text-slate-600">
+                            <li>- Buy Stop: Tự động điều chỉnh giảm xuống khi giá Ask giảm.</li>
+                            <li>- Sell Stop: Tự động điều chỉnh tăng lên khi giá Bid tăng.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Positive Infinite Trailing Stop:</strong> Cơ chế chốt lời động, bám sát chuyển động của Tick.</li>
+                    <li><strong>Chuẩn hóa Dữ liệu (Normalization):</strong> Áp dụng <code>NormalizeDouble</code> cho mọi tính toán giá.</li>
+                </ul>
+            </section>
+
+            <section id="risk">
+                <h2 class="text-2xl font-bold text-midnight mb-6">4. Quản trị rủi ro (Risk Management)</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse border-t border-b border-gray-300">
+                        <thead>
+                            <tr class="text-midnight uppercase text-xs border-b border-gray-200">
+                                <th class="py-3 px-2">Rủi ro</th>
+                                <th class="py-3 px-2">Mô tả</th>
+                                <th class="py-3 px-2">Mức độ</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm">
+                            <tr class="border-b border-gray-100">
+                                <td class="py-4 px-2 font-bold">Biến động thị trường</td>
+                                <td class="py-4 px-2">Giãn Spread khi có tin tức mạnh</td>
+                                <td class="py-4 px-2"><span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-xs">TRUNG BÌNH</span></td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-4 px-2 font-bold">Độ trễ sàn (Broker)</td>
+                                <td class="py-4 px-2">Tốc độ hạ tầng server môi giới</td>
+                                <td class="py-4 px-2"><span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">THẤP</span></td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-4 px-2 font-bold">Trượt giá (Slippage)</td>
+                                <td class="py-4 px-2">Sai lệch giá khớp tại thị trường nhanh</td>
+                                <td class="py-4 px-2"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">CAO</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="conclusion">
+                <h2 class="text-2xl font-bold text-midnight mb-4">3. Kết luận (Conclusion)</h2>
+                <p class="text-justify">
+                    Dự án AI Bot Trade Pro đã đạt được mục tiêu thiết kế một hệ thống giao dịch có độ chính xác tuyệt đối và khả năng thích ứng cao. Với mã nguồn sạch, quản lý tài nguyên hiệu quả thông qua <code>OnDeinit</code> và giao diện minh bạch, hệ thống đã sẵn sàng để vận hành trên các tài khoản thực tế với hiệu năng cao nhất.
+                </p>
+            </section>
+
+        </article>
+
+        <!-- Footer -->
+        <footer class="mt-16 pt-8 border-t border-gray-300 text-center text-xs text-slateGray">
+            <p>Liên hệ: contact@phamhoanganhtokens.com</p>
+            <p class="mt-2">Báo cáo tuân thủ tiêu chuẩn V4 Internal Architecture.</p>
+        </footer>
+
+    </main>
+</body>
+</html>
